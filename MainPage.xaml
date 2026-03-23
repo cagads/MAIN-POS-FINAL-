@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAIN_POS.MainPage"
+             BackgroundColor="#3e95a6">
+
+    <Grid Padding="30">
+        <VerticalStackLayout VerticalOptions="Center" Spacing="25">
+
+            <Label Text="LOGIN"
+                   TextColor="White"
+                   FontSize="40"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,40" />
+
+            <Border Stroke="White" StrokeThickness="1" Padding="15">
+                <Entry Placeholder="Username"
+                       Text="{Binding Username}"
+                       TextColor="White"
+                       PlaceholderColor="#dddddd" />
+            </Border>
+
+            <Border Stroke="White" StrokeThickness="1" Padding="15">
+                <Entry Placeholder="Password"
+                       Text="{Binding Password}"
+                       IsPassword="True"
+                       TextColor="White"
+                       PlaceholderColor="#dddddd" />
+            </Border>
+
+            <Button Text="LOGIN"
+                    BackgroundColor="#EEEEEE"
+                    TextColor="#333333"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    Command="{Binding LoginCommand}" />
+
+            
+            <Label Text="Don't have an account?"
+                   TextColor="White"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Create one"
+                   TextColor="LightBlue"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoToRegisterCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>

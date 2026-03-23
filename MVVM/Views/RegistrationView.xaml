@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAIN_POS.MVVM.Views.RegistrationView"
+             Title="RegistrationView"
+             BackgroundColor="#3e95a6">
+    
+
+    <Grid Padding="30">
+        
+        <VerticalStackLayout VerticalOptions="Center" Spacing="20">
+
+            <Label Text="REGISTER"
+           HorizontalOptions="Center"
+           TextColor="White"
+           FontSize="40"
+           Margin="0,0,0,30"/>
+
+            <Border Stroke="White" Padding="15">
+                <Entry Placeholder="Username"
+               Text="{Binding Username}"
+               TextColor="White"/>
+            </Border>
+
+            <Border Stroke="White" Padding="15">
+                <Entry Placeholder="Password"
+               Text="{Binding Password}"
+               IsPassword="True"
+               TextColor="White"/>
+            </Border>
+
+            <Border Stroke="White" Padding="15">
+                <Entry Placeholder="Confirm Password"
+               Text="{Binding ConfirmPassword}"
+               IsPassword="True"
+               TextColor="White"/>
+            </Border>
+
+            <Button Text="Sign Up"
+            Command="{Binding RegisterCommand}" />
+
+            <Label Text="Already have an account?"
+           TextColor="White"
+           HorizontalOptions="Center"/>
+
+            <Button Text="Login"
+            Command="{Binding GoToLoginCommand}" />
+
+        </VerticalStackLayout>
+
+
+    </Grid>
+</ContentPage>

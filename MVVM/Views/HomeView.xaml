@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAIN_POS.MVVM.Views.HomeView"
+             Title="HomeView"
+             >
+
+
+    <Grid RowDefinitions="*,90">
+
+        <!-- MAIN CONTENT -->
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="20" Spacing="15">
+
+                <!-- HEADER -->
+                <Border BackgroundColor="#4B9FB0"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 18"
+                        Padding="15">
+
+                    <Grid ColumnDefinitions="Auto,*,Auto"
+                          VerticalOptions="Center">
+
+                        <!-- Left Icon -->
+                        <Label Text="👤"
+                               TextColor="Black"
+                               FontSize="28"
+                               VerticalOptions="Center" />
+
+                        <!-- Title -->
+                        <Label Grid.Column="1"
+                               Text="USER MANAGEMENT"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="White"
+                               VerticalOptions="Center"
+                               Margin="10,0,0,0" />
+
+                        <!-- Right Icon -->
+                        <Label Grid.Column="2"
+                               Text="🍔"
+                               FontSize="28"
+                               VerticalOptions="Center" />
+                    </Grid>
+                </Border>
+
+                <!-- SEARCH BAR -->
+                <Border BackgroundColor="White"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 10"
+                        Padding="5,0">
+                    <SearchBar Placeholder="Search..."
+                               Text="{Binding SearchText}"
+                               BackgroundColor="Transparent"
+                               CancelButtonColor="Transparent" />
+                </Border>
+
+                <!-- ADD USER BUTTON -->
+                <Button Text="+ Add User"
+                        Command="{Binding AddUserCommand}"
+                        BackgroundColor="White"
+                        TextColor="Black"
+                        FontSize="16"
+                        CornerRadius="10"
+                        HeightRequest="50" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- BOTTOM NAVIGATION BAR -->
+        <Border Grid.Row="1"
+                BackgroundColor="#4B9FB0"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 0,0,18,18">
+
+            <Grid ColumnDefinitions="*,*,*,*"
+                  Padding="10,8">
+
+                <VerticalStackLayout Grid.Column="0"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Spacing="2">
+                    <Button Text="Home"
+                            Command="{Binding GoHomeCommand}"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            FontSize="12"
+                            Padding="0"
+                            CornerRadius="0" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="1"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Spacing="2">
+                    <Button Text="Users"
+                            Command="{Binding GoUsersCommand}"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            FontSize="12"
+                            Padding="0"
+                            CornerRadius="0" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="2"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Spacing="2">
+                    <Button Text="Notifications"
+                            Command="{Binding GoNotificationsCommand}"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            FontSize="12"
+                            Padding="0"
+                            CornerRadius="0" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="3"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Spacing="2">
+                    <Button Text="Settings"
+                            Command="{Binding GoSettingsCommand}"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            FontSize="12"
+                            Padding="0"
+                            CornerRadius="0" />
+                </VerticalStackLayout>
+
+            </Grid>
+        </Border>
+
+    </Grid>
+
+
+</ContentPage>
