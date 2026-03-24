@@ -37,7 +37,7 @@ namespace MAIN_POS.MVVM.ViewModels
             {
                 await Application.Current.MainPage.DisplayAlert("Success", "Login Successful", "OK");
 
-                Application.Current.MainPage = new HomeView();
+                Application.Current.MainPage = new AdminDashboardView();
             }
             else
             {

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAIN_POS.MVVM.Views.AdminDashboardView"
+             Title="AdminDashboardView">
+    <Grid RowDefinitions="Auto,Auto,*">
+
+        <!-- HEADER -->
+        <Grid Grid.Row="0"
+              BackgroundColor="#FF6A00"
+              Padding="20,18">
+            <Label Text="FastFood POS"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   VerticalOptions="Center" />
+        </Grid>
+
+        <!-- HORIZONTAL SCROLLABLE TOP NAV -->
+        <ScrollView Grid.Row="1"
+                    Orientation="Horizontal"
+                    HorizontalScrollBarVisibility="Never"
+                    BackgroundColor="#FF6A00">
+
+            <HorizontalStackLayout Spacing="0"
+                                   Padding="0">
+
+                <Button Text="POS"
+                        Command="{Binding PointOfSaleCommand}"
+                        BackgroundColor="#E85D04"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="0"
+                        Padding="24,14"
+                        MinimumWidthRequest="110" />
+
+                <Button Text="Inventory"
+                        Command="{Binding InventoryCommand}"
+                        BackgroundColor="#FF6A00"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="0"
+                        Padding="24,14"
+                        MinimumWidthRequest="140" />
+
+                <Button Text="Orders"
+                        Command="{Binding OrderingManagementCommand}"
+                        BackgroundColor="#FF6A00"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="0"
+                        Padding="24,14"
+                        MinimumWidthRequest="120" />
+
+                <Button Text="Reports"
+                        Command="{Binding ReportsCommand}"
+                        BackgroundColor="#FF6A00"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="0"
+                        Padding="24,14"
+                        MinimumWidthRequest="120" />
+
+                <Button Text="User Management"
+                        Command="{Binding UserManagementCommand}"
+                        BackgroundColor="#FF6A00"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="0"
+                        Padding="24,14"
+                        MinimumWidthRequest="180" />
+            </HorizontalStackLayout>
+        </ScrollView>
+
+        <!-- MAIN CONTENT -->
+        <ScrollView Grid.Row="2">
+            <VerticalStackLayout Spacing="16"
+                                 Padding="16">
+
+                <Label Text="Admin Dashboard"
+                       FontSize="30"
+                       FontAttributes="Bold"
+                       TextColor="#111827" />
+
+                <Border Stroke="#E5E7EB"
+                        StrokeThickness="1"
+                        BackgroundColor="White"
+                        StrokeShape="RoundRectangle 12"
+                        Padding="14">
+                    <Label Text="Select a module from the top menu."
+                           FontSize="15"
+                           TextColor="#6B7280" />
+                </Border>
+
+                <!-- Example search -->
+                <SearchBar Placeholder="Search..."
+                           HeightRequest="50"
+                           BackgroundColor="White" />
+
+                <!-- Example category chips -->
+                <ScrollView Orientation="Horizontal"
+                            HorizontalScrollBarVisibility="Never">
+                    <HorizontalStackLayout Spacing="10">
+                        <Button Text="All"
+                                BackgroundColor="#FF6A00"
+                                TextColor="White"
+                                CornerRadius="12"
+                                Padding="18,10" />
+                        <Button Text="Regular Burger"
+                                BackgroundColor="White"
+                                TextColor="Black"
+                                BorderColor="#D1D5DB"
+                                BorderWidth="1"
+                                CornerRadius="12"
+                                Padding="18,10" />
+                        <Button Text=" w/egg Burger"
+                                BackgroundColor="White"
+                                TextColor="Black"
+                                BorderColor="#D1D5DB"
+                                BorderWidth="1"
+                                CornerRadius="12"
+                                Padding="18,10" />
+                        <Button Text="Inventory"
+                                BackgroundColor="White"
+                                TextColor="Black"
+                                BorderColor="#D1D5DB"
+                                BorderWidth="1"
+                                CornerRadius="12"
+                                Padding="18,10" />
+                    </HorizontalStackLayout>
+                </ScrollView>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </Grid>
+</ContentPage>
