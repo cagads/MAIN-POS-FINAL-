@@ -2,11 +2,89 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MAIN_POS.MVVM.Views.UserManagementView"
-             Title="UserManagementView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             BackgroundColor="#3e95a6"
+             Title="User Management">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Label Text="USER MANAGEMENT"
+               FontSize="24"
+               FontAttributes="Bold"
+               TextColor="White" />
+
+        <SearchBar Placeholder="Search users..."
+                   Text="{Binding SearchText}"
+                   PlaceholderColor="LightGray" />
+
+        <Button Text="Add User"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Clicked="Button_Clicked"/>
+
+        <Label Text="Users"
+               FontSize="16"
+               FontAttributes="Bold"
+               TextColor="Black"/>
+
+        <CollectionView ItemsSource="{Binding Users}"
+                VerticalOptions="FillAndExpand">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10"
+                   Margin="0,5"
+                   BackgroundColor="White"
+                   CornerRadius="10">
+
+                        <Grid ColumnDefinitions="*,Auto"
+                      ColumnSpacing="15">
+
+                            <!-- LEFT SIDE : USER INFO -->
+                            <VerticalStackLayout Grid.Column="0"
+                                         Spacing="2">
+
+                                <Label Text="{Binding Role}"
+                                    FontSize="10"
+                                    FontAttributes="Bold"
+                                    TextColor="Black"/>
+                                <Label Text="{Binding Name}"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="Black"/>
+                                
+                                
+
+                                <Label Text="{Binding Email}"
+                               FontSize="13"
+                               TextColor="Gray"/>
+                            </VerticalStackLayout>
+
+                            <!-- RIGHT SIDE : BUTTONS -->
+                            <HorizontalStackLayout Grid.Column="1"
+                                         Spacing="8"
+                                         VerticalOptions="Center">
+
+                                <Button x:Name="Editbtn"
+                                    Text="Edit"
+                                BackgroundColor="#4CAF50"
+                                TextColor="White"
+                                CornerRadius="8"
+                                Padding="12,6"
+                                Clicked="Editbtn_Clicked"
+                                />
+
+                                <Button Text="Delete"
+                                BackgroundColor="#E53935"
+                                TextColor="White"
+                                CornerRadius="8"
+                                Padding="12,6"
+                                 />
+                            </HorizontalStackLayout>
+
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
     </VerticalStackLayout>
 </ContentPage>

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using MAIN_POS.APIServices;
 using MAIN_POS.MVVM.Views;
 
+
 namespace MAIN_POS.MVVM.ViewModels
 {
     public class LoginViewModel
@@ -21,6 +22,7 @@ namespace MAIN_POS.MVVM.ViewModels
         public LoginViewModel()
         {
             LoginCommand = new Command(Login);
+            
             GoToRegisterCommand = new Command(GoToRegister);
         }
 
@@ -35,6 +37,8 @@ namespace MAIN_POS.MVVM.ViewModels
             var user = await api.Login(Username, Password);
             if (user != null)
             {
+                Session.CurrentUserRole = user.Role;
+
                 await Application.Current.MainPage.DisplayAlert("Success", "Login Successful", "OK");
 
                 Application.Current.MainPage = new AdminDashboardView();

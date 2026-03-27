@@ -62,13 +62,13 @@
                         MinimumWidthRequest="120" />
 
                 <Button Text="User Management"
-                        Command="{Binding UserManagementCommand}"
+                        Command="{Binding GoToUserManagementCommand}"
                         BackgroundColor="#FF6A00"
                         TextColor="White"
                         FontAttributes="Bold"
                         CornerRadius="0"
                         Padding="24,14"
-                        MinimumWidthRequest="180" />
+                        MinimumWidthRequest="180"/>
             </HorizontalStackLayout>
         </ScrollView>
 

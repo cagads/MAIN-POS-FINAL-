@@ -13,6 +13,12 @@ namespace MAIN_POS.MVVM.ViewModels
 
         ApiServices api = new ApiServices();
 
+        public string Name { get; set; }
+
+        public string Email { get; set; }
+
+        public string Role { get; set; }
+
         public string Username { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
@@ -23,13 +29,16 @@ namespace MAIN_POS.MVVM.ViewModels
         public RegistrationViewModel()
         {
             RegisterCommand = new Command(async () => await Register());
-            GoToLoginCommand = new Command(async () => await GoToLogin());
+            
         }
 
         private async Task Register()
         {
             // ✅ Validation
-            if (string.IsNullOrWhiteSpace(Username) ||
+            if (string.IsNullOrEmpty(Role)||
+                string.IsNullOrEmpty(Name)||
+                string.IsNullOrEmpty(Email)||
+                string.IsNullOrWhiteSpace(Username) ||
                 string.IsNullOrWhiteSpace(Password) ||
                 string.IsNullOrWhiteSpace(ConfirmPassword))
             {
@@ -43,8 +52,17 @@ namespace MAIN_POS.MVVM.ViewModels
                 return;
             }
 
+            if (Role == "Admin" && Session.CurrentUserRole != "Admin")
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Only an Admin can create another Admin", "OK");
+                return;
+            }
+
             var newUser = new User
             {
+                Role = Role,
+                Name = Name,
+                Email = Email,
                 Username = Username,
                 Password = Password
             };
@@ -64,10 +82,7 @@ namespace MAIN_POS.MVVM.ViewModels
             }
         }
 
-        private async Task GoToLogin()
-        {
-            await Application.Current.MainPage.Navigation.PushAsync(new MainPage());
-        }
+        
 
     }
 }

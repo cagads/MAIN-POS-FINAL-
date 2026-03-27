@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAIN_POS.MVVM.Views.EditUserView"
+             Title="EditUserView">
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Label Text="Edit User"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <Entry Placeholder="Name"
+               Text="{Binding Name}" />
+
+        <Entry Placeholder="Username"
+               Text="{Binding Username}" />
+
+        <Entry Placeholder="Email"
+               Text="{Binding Email}" />
+
+        <Entry Placeholder="Password"
+               Text="{Binding Password}"
+               IsPassword="True" />
+
+        <Button Text="Save"
+                Command="{Binding SaveCommand}" />
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -17,6 +17,18 @@
            Margin="0,0,0,30"/>
 
             <Border Stroke="White" Padding="15">
+                <Entry Placeholder="Name"
+                Text="{Binding Name}"
+                TextColor="White"/>
+            </Border>
+            
+            <Border Stroke="White" Padding="15">
+                <Entry Placeholder="Email"
+                Text="{Binding Email}"
+                TextColor="White"/>
+            </Border>
+
+            <Border Stroke="White" Padding="15">
                 <Entry Placeholder="Username"
                Text="{Binding Username}"
                TextColor="White"/>
@@ -36,15 +48,18 @@
                TextColor="White"/>
             </Border>
 
+            <Picker Title="Select Role"
+                    SelectedItem="{Binding Role}">
+                            <Picker.Items>
+                                <x:String>Admin</x:String>
+                                <x:String>User</x:String>
+                            </Picker.Items>
+            </Picker>
+
             <Button Text="Sign Up"
             Command="{Binding RegisterCommand}" />
 
-            <Label Text="Already have an account?"
-           TextColor="White"
-           HorizontalOptions="Center"/>
-
-            <Button Text="Login"
-            Command="{Binding GoToLoginCommand}" />
+            
 
         </VerticalStackLayout>
 
